@@ -1,6 +1,4 @@
-
 # Intro to Data Visualization
-
 
 # First we load the necessary libraries for our project
 import matplotlib.pyplot as plt
@@ -67,3 +65,10 @@ for bar in bars:
 plt.title('Bar Chart Example')
 
 plt.show()
+
+
+## Real World Examples
+
+# NumPy + Pandas to work with csv type data
+
+
