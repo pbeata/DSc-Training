@@ -65,6 +65,34 @@ print(data.sort_values(['Type 1', 'HP'], ascending=[True, False]))
 
 # add all the stats columns individually to make an OVERALL column
 data['Total'] = data['HP'] + data['Attack'] + data['Defense'] + data['Sp. Atk'] + data['Sp. Def'] + data['Speed']
-print(data['Total'])
+
+# print(data['Total'])
+
+# we can also "drop this column" from the data frame:
+print(data)
+data = data.drop(columns=['Total'])
+print(data)
+
+# alternative way to sum columns
+
+# data['Total'] = data.iloc[:, 4:9].sum(axis=1)  # WRONG! does not include the 9th column
+data['Total'] = data.iloc[:, 4:10].sum(axis=1)
+print(data.head(5))
+
+# re-order the list using the column headers
+cols = list(data.columns.values)
+data = data[cols[0:4] + [cols[-1]] + cols[4:12]]
+
+# re-arrage the Total column so that it is more to the left
+print(data.head(5))
+
+# save our new data in a CSV file
+# data.to_csv('./out/pokemon_data_mod.csv')
+data.to_csv('./out/pokemon_data_mod.csv', index=False)
+
+# other options for saving data to a file:
+# data.to_excel('./out/pokemon_data_mod.xlsx', index=False)
+# data.to_csv('out/pokemon_data_mod.txt', index=False, sep='\t')
+
 
 
